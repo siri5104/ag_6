@@ -1,0 +1,37 @@
+[
+  {
+    "name": "sangeetha",
+    "email": "sangeetha@gmail.com",
+    "password": "Sangeetha@9"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "password": "password456"
+  },
+  {
+    "name": "sangeetha",
+    "email": "sangeethacherukuri@gmail.com",
+    "password": "$2b$10$sq0XCU41NW9H0AOKwFNrXOEDoXkzggOtMy/6a57M1u5wNX71Wjo1i"
+  },
+  {
+    "name": "sangeetha1",
+    "email": "sangeetha1cherukuri@gmail.com",
+    "password": "$2b$10$FbdQiQDqWVbBqU20W6mrEu1KdwachxWC9tJCgQSP.8HGPlm700Tci"
+  },
+  {
+    "name": "Sowndarya",
+    "email": "sowndarya@gmail.com",
+    "password": "$2b$10$8zzWBhE335UErAMcdPeIuuDu4D25pP18EvIrlaqaGUwux/COElEHW"
+  },
+  {
+    "name": "Sowndaryavathi",
+    "email": "sow@gmail.com",
+    "password": "$2b$10$A5Hb8bIm8DP/Sxwa8hPfFu45jLrwgw68BIl/WT5lmoK872mIHlmBe"
+  },
+  {
+    "name": "tarun",
+    "email": "tarun@gmail.com",
+    "password": "$2b$10$.0LSAQm92U7usI8aVK21U.TqOR1rXDYE6iaF1/vHrqfV/o29OESvC"
+  }
+]

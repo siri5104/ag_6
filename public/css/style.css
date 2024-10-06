@@ -1,0 +1,424 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Header Section */
+header {
+    background-color: #34495E;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Ensure the background image and content stay within bounds */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid #ddece9;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.kayak.co.uk/news/wp-content/uploads/sites/5/2022/01/dest_thailand_chiangmai_yi-peng-festival_shutterstock-premier_322530497_universal_within-usage-period_32269.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6; /* Slightly darker for better text visibility */
+    z-index: 0;
+    animation: backgroundMove 10s infinite linear; /* Subtle background movement */
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: center;
+    }
+    50% {
+        background-position: top right;
+    }
+    100% {
+        background-position: center;
+    }
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); /* Text shadow for better readability */
+    animation: slideInFromTop 1s ease-out;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Navigation Styles */
+nav {
+    padding: 15px 0;
+    position: relative;
+    z-index: 1;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Add space between the navigation items */
+    transition: transform 0.5s ease;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 12px 20px;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+}
+
+/* Hover Effect for Navigation Links */
+nav ul li a:hover {
+    background-color: #0e0e0f;
+    color: white;
+    transform: scale(1.1); /* Slight scale effect for hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Buttons Styles */
+.header-buttons {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 1;
+}
+
+.header-buttons .nav-btn {
+    background-color: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+    padding: 15px 20px;
+    color: white;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effect for Header Buttons */
+.header-buttons .nav-btn:hover {
+    background-color: #111212;
+    color:white;
+    border-color:white;
+    transform: translateY(-5px); /* Slight upward movement on hover */
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+    header {
+        padding: 30px;
+    }
+
+    .header-buttons {
+        top: 80%;
+        right: 20px;
+        position: relative;
+        transform: translateY(0);
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+    }
+
+    nav ul li a {
+        font-size: 1.4rem;
+        padding: 15px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    section.main-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+#slider {
+	overflow: hidden;
+}
+
+@keyframes slider {
+	0% { left: 0; }
+	30% { left: 0; }
+	33% { left: -100%; }
+	63% { left: -100%; }
+	66% { left: -200%; }
+	95% { left: -200%; }
+	100% { left: 0; }
+}
+#slider figure {
+	width:400%;
+	position: relative;
+	animation: 12s slider infinite;
+}
+
+#slider figure:hover {
+	/*animation-play-state: paused; enable for pause on hover*/
+}
+#slider figure img {
+	width: 25%;
+	height : 100%;
+	float: left;
+}
+section.main-section {
+    text-align: center;
+    padding: 50px;
+}
+
+section.main-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+section.main-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Cards Section */
+/* Cards Section */
+.cards-container {
+    display: grid;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    overflow: hidden; /* To ensure cards stay within container when animating */
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: cardEnter 0.5s ease-out forwards, cardHover 0.5s ease-out 0.3s forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for hover effect */
+}
+
+/* Hover effect for card */
+.card:hover {
+    transform: translateY(0) scale(1.05); /* Slight scaling on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
+    background-color: #e0e0e0; /* Change background color on hover */
+}
+
+/* Animation for cards */
+@keyframes cardEnter {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation for card hover (subtle rotation effect on first appearance) */
+@keyframes cardHover {
+    0% {
+        transform: translateY(50px) rotate(10deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Styling for image inside the card */
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    transition: transform 0.3s ease; /* Smooth image zoom effect */
+}
+
+/* Image zoom effect on hover */
+.card:hover img {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.card h3 {
+    margin: 20px 0 10px 0;
+    font-size: 1.5rem;
+    color: #333; /* Darker color for better contrast */
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .header-buttons {
+        top: auto; /* Adjust position for smaller screens */
+        right: 10px;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    section.main-section {
+        padding: 20px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    section.main-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .nav-btn {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+}
+
+/* Footer */
+.site-footer {
+    background-color:#3B3030;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #BDC3C7;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #1ABC9C;
+}
+
+/* Footer Bottom Styling */
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #1ABC9C;
+}
+
+/* Footer Text */
+footer p {
+    font-size: 1rem;
+    color: #BDC3C7;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    .social-links a {
+        font-size: 2rem;
+    }
+}

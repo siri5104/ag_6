@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="./css/pro.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./logout.html" id="logout-button">Logout</a></li> <!-- Logout link -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Welcome, <span id="user-name">Guest</span>!</h2>
+        <p>This is your profile page.</p>
+    </main>
+
+    <script>
+        // Retrieve the user's name from local storage and display it
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('userName');
+            document.getElementById('user-name').textContent = userName || 'Guest';
+        });
+
+        // Handle logout action
+        document.getElementById('logout-button').addEventListener('click', (event) => {
+            // Clear user name from local storage
+            localStorage.removeItem('userName');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Grand Event Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/dash.css"> <!-- Ensure this path is correct -->
+</head>
+<body>
+    <header>
+        <div class="header-background"></div>
+        <h1>Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="dashboard-container">
+        <div class="event-card welcome-card">
+            <h2>Welcome, User!</h2>
+            <img src="https://images.squarespace-cdn.com/content/v1/5f4d8bd7105d20465ff557b5/6ff31f18-782a-4692-b08c-d6f9b76a54cd/event+space+okc_The+Plantation+at+coal+creek.jpg" alt="Welcome Image" class="event-image">
+        </div>
+        <div class="event-card">
+            <h3>Add New Event</h3>
+            <img src="https://i.etsystatic.com/41345571/r/il/73409b/4786603487/il_570xN.4786603487_m57p.jpg" alt="Add Event" class="event-image">
+            <form id="addEventForm">
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName" name="eventName" required>
+                <label for="eventLocation">Event Location:</label>
+                <input type="text" id="eventLocation" name="eventLocation" required>
+                <label for="eventDate">Event Date:</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+                <button type="submit">Add Event</button>
+            </form>
+        </div>
+        <div class="event-card">
+            <h3>Upcoming Events</h3>
+            <img src="https://media.istockphoto.com/id/1177485677/photo/table-setting-for-an-event-party-or-wedding-reception.jpg?s=612x612&w=0&k=20&c=F1kd8_DGpxBmq02GLMywXHJbAuyg-50xW1xdsQNxDm0=" alt="Upcoming Events" class="event-image">
+            <table id="eventsTable">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+   
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">Corporate Events</a></li>
+                    <li><a href="#">Weddings</a></li>
+                    <li><a href="#">Conferences</a></li>
+                    <li><a href="#">Social Gatherings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Event Planning Guide</a></li>
+                    <li><a href="#">Vendor Directory</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="#">Get a Quote</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Partnerships</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="https://www.facebook.com/YourEventManagement" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/YourEventMgmt" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/YourEventManagement" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/YourEventManagement" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <!-- Adding a YouTube link -->
+                <a href="https://www.youtube.com/channel/YourEventManagement" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <!-- Adding a Pinterest link -->
+                <a href="https://www.pinterest.com/YourEventManagement" target="_blank" aria-label="Pinterest">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Your Event Management Company. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script src="./script/dash.js"></script> <!-- Ensure this path is correct -->
+</body>
+</html>

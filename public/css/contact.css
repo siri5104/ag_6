@@ -1,0 +1,252 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #34495E;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://contentsnare.com/wp-content/uploads/2021/12/8278-event-planning-questionnaire-1024x576.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    font-size: 3rem;
+}
+
+nav {
+    padding: 10px 0;
+    position: relative;
+    z-index: 1;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #1ABC9C;
+    border-radius: 5px;
+}
+
+/* Contact Form Styles */
+.contact-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: linear-gradient(135deg, #f9f9f9 50%, #e1e1e1 100%);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: slide-in 1.2s ease-out;
+}
+
+.contact-container h2 {
+    text-align: center;
+    color: #34495E;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-container p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #777;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 10px;
+    color: #34495E;
+    font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #1ABC9C;
+    outline: none;
+}
+
+.submit-btn {
+    padding: 15px;
+    background: linear-gradient(135deg, #34495E, #1ABC9C);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #1ABC9C, #34495E);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #34495E;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .contact-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}.site-footer {
+    background-color:#3B3030;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #BDC3C7;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #1ABC9C;
+}
+
+/* Footer Bottom Styling */
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #1ABC9C;
+}
+
+/* Footer Text */
+footer p {
+    font-size: 1rem;
+    color: #BDC3C7;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    .social-links a {
+        font-size: 2rem;
+    }
+}

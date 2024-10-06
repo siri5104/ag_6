@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-background"></div>
+        <h1>Event Management</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
+                <li><a href="./dashboardprofile.html">Profile</a></li>
+            </ul>
+        </nav>
+        <div class="header-buttons" id="header-buttons">
+            <!-- User buttons will be dynamically added or removed here -->
+        </div>
+    </header>
+    
+    <section class="main-section">
+        <div id="slider">
+            <figure>
+                <img src="./image/event1.jpg">
+                <img src="./image/event2.jpg">
+                <img src="./image/event3.jpeg">
+            </figure>
+        </div>
+        <h2>Welcome! Plan your Grand Event Here With Us</h2>
+        
+        <section class="cards-container">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_XE1ratRkFXZzvbguBQIclUWtIBuEp61aDg&s" alt="Event Image">
+                <h3>Corporate Event</h3>
+                <p>Manage and plan large-scale corporate events with ease.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/wedding-with-flowers-water-view_865967-1214594.jpg" alt="Event Image">
+                <h3>Wedding Event</h3>
+                <p>Turn your dream wedding into a reality with our expert planning.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh-NFA-hpQ9_0IL9smmIApVAB00RDQbIUCzmUh_Ki4h_jg_7gT-TVdOTDh7ekeV9b9UkY&usqp=CAU" alt="Event Image">
+                <h3>Private Party</h3>
+                <p>Host an unforgettable party that your guests will talk about for years.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://img.freepik.com/free-photo/rear-view-large-group-music-fans-front-stage-during-music-concert-by-night-copy-space_637285-623.jpg" alt="Event Image">
+                <h3>Concert Event</h3>
+                <p>Plan seamless concerts with high attendance and exceptional management.</p>
+            </div>
+        </section>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">Corporate Events</a></li>
+                    <li><a href="#">Weddings</a></li>
+                    <li><a href="#">Conferences</a></li>
+                    <li><a href="#">Social Gatherings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Event Planning Guide</a></li>
+                    <li><a href="#">Vendor Directory</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="#">Get a Quote</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Partnerships</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="https://www.facebook.com/YourEventManagement" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/YourEventMgmt" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/YourEventManagement" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/YourEventManagement" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/YourEventManagement" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.pinterest.com/YourEventManagement" target="_blank" aria-label="Pinterest">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Your Event Management Company. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simulate user login state
+        const user = {
+            isLoggedIn: localStorage.getItem('loggedIn') === 'true', // Check if user is logged in
+            name: localStorage.getItem('userName') || 'Guest' // Get user name from localStorage
+        };
+
+        const navLinks = document.getElementById('nav-links');
+        const headerButtons = document.getElementById('header-buttons');
+
+        if (user.isLoggedIn) {
+            // Remove login and register links
+            navLinks.querySelectorAll('li').forEach((li) => {
+                if (li.textContent.includes('Login') || li.textContent.includes('Register')) {
+                    li.remove();
+                }
+            });
+
+            // Show user name and logout option
+            headerButtons.innerHTML = `
+                <div class="user-menu">
+                    <span id="user-name">Welcome, ${user.name}</span>
+                    <button onclick="logout()" class="nav-btn">Logout</button>
+                </div>
+            `;
+        } else {
+            // Show login and register buttons
+            headerButtons.innerHTML = `
+                <button onclick="location.href='login1.html'" class="nav-btn">Login</button>
+                <button onclick="location.href='registration.html'" class="nav-btn">Register</button>
+            `;
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            localStorage.removeItem('userName');
+            window.location.href = 'index.html'; // Redirect to main page after logout
+        }
+    </script>
+</body>
+</html>

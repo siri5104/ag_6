@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Event Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <!-- Update EmailJS SDK to the latest version -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('8KswEZlXCzgE-qcEg'); //user id
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-background"></div>
+        <h1>Contact Us</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="header-buttons" id="header-buttons"></div>
+    </header>
+
+    <section class="contact-container">
+        <h2>Get in Touch</h2>
+        <p>We'd love to hear from you! Feel free to reach out via the form below.</p>
+        <form class="contact-form" id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <div id="status-message"></div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">Corporate Events</a></li>
+                    <li><a href="#">Weddings</a></li>
+                    <li><a href="#">Conferences</a></li>
+                    <li><a href="#">Social Gatherings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Event Planning Guide</a></li>
+                    <li><a href="#">Vendor Directory</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="#">Get a Quote</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Partnerships</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-links">
+                <a href="https://www.facebook.com/YourEventManagement" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/YourEventMgmt" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/YourEventManagement" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/YourEventManagement" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <!-- Adding a YouTube link -->
+                <a href="https://www.youtube.com/channel/YourEventManagement" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <!-- Adding a Pinterest link -->
+                <a href="https://www.pinterest.com/YourEventManagement" target="_blank" aria-label="Pinterest">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Your Event Management Company. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Basic form validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !message) {
+                showStatus('Please fill in all fields.', 'error');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showStatus('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show sending status
+            showStatus('Sending message...', 'info');
+            
+            // Prepare the template parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message
+            };
+            
+            // Send the email using emailjs.send()
+            emailjs.send('service_6obnjxw', 'template_i84xxpa', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showStatus('Message sent successfully!', 'success');
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    showStatus('Failed to send message: ' + JSON.stringify(error), 'error');
+                });
+        });
+        
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('status-message');
+            statusDiv.textContent = message;
+            statusDiv.className = type;
+            statusDiv.style.display = 'block';
+            
+            // Hide the message after 5 seconds
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

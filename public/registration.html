@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="./css/reg.css"> <!-- Ensure this path is correct -->
+</head>
+<body>
+
+    <!-- Header for consistency across pages -->
+    <header>
+        <div class="header-background"></div>
+        <h1>Event Management</h1>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="card-container">
+        <div class="card" id="card">
+            <div class="card-side back">
+                <form id="signup-form">
+                    <h2>Sign Up</h2>
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" name="name" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" name="email" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" name="password" required />
+                    </div>
+                    <div class="input-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password" name="confirmPassword" required />
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="register-btn">Sign Up</button>
+                        <button type="reset" class="register-btn">Reset</button>
+                    </div>
+                    <div class="login-prompt">
+                        <a href="login1.html" id="login-link">Already have an account?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Card flip functionality
+        const card = document.getElementById('card');
+        const front = document.getElementById('front');
+
+        front.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+
+        // Handle form submission
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    window.location.href = '/login1.html'; // Redirect to login after successful signup
+                } else {
+                    alert(result.error);
+                }
+            } catch (error) {
+                alert('An error occurred: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
